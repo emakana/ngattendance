@@ -1,1 +1,126 @@
-<p>registration works!</p>
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #userForm="ngForm">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input
+          type="text"
+          [(ngModel)]="user.fullName"
+          class="form-control"
+          id="fullName"
+          name="fullName"
+          placeholder="Enter your full name"
+          required
+          #fullName="ngModel"
+          [class.is-Invalid]="fullName.invalid && fullName.touched"
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="fullName.valid || fullName.untouched"
+          >Full Name is a required field</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="idno">Id No</label>
+        <input
+          type="text"
+          [(ngModel)]="user.id"
+          class="form-control"
+          id="idNo"
+          name="idNo"
+          placeholder="Enter your ID No"
+          required
+          #id="ngModel"
+          [class.is-Invalid]="id.invalid && id.touched"
+        />
+        <small class="text-danger" [class.d-none]="id.valid || id.untouched"
+          >ID No is a required field</small
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="createdAt">Created At</label>
+        <input
+          type="text"
+          [(ngModel)]="user.createdAt"
+          class="form-control"
+          id="createdAt"
+          name="createdAt"
+          placeholder="Enter your Create Date"
+          required
+        />
+        TODO: remove this: {{ user.createdAt }}
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="Enter email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          #email="ngModel"
+          [class.is-Invalid]="email.invalid && email.touched"
+        />
+        <small
+          class="text-danger"
+          [class.d-none]="email.valid || email.untouched"
+          >Email is a required field</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="pwd"
+          placeholder="Enter password"
+          name="pwd"
+          [(ngModel)]="user.password"
+          required
+          #password="ngModel"
+          [class.is-Invalid]="password.invalid && password.touched"
+        />
+
+        <small
+          class="text-danger"
+          [class.d-none]="password.valid || password.untouched"
+          >Password is a required field</small
+        >
+      </div>
+      <div class="form-group">
+        <label for="pwd">Confirm Password:</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confpwd"
+          placeholder="Enter Confirm password"
+          name="confpwd"
+          [(ngModel)]="user.confirmPassword"
+          required
+          #confirmPassword="ngModel"
+          [class.is-Invalid]="
+            confirmPassword.invalid && confirmPassword.touched
+          "
+        />
+
+        <small
+          class="text-danger"
+          [class.d-none]="confirmPassword.valid || confirmPassword.untouched"
+          >Confirm Password is a required field</small
+        >
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!userForm.form.valid"
+        class="btn btn-info"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>

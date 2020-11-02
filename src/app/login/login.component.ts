@@ -29,4 +29,8 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
+  gotoregistration() {
+    this._router.navigate(['/registration']);
+  }
 }
